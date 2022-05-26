@@ -1,6 +1,6 @@
 {
   "name": "@solanyan/form-creator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "build": "tsc && vite build"
   },
