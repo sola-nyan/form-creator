@@ -11,7 +11,7 @@ function isArray(obj: any) {
   return Array.isArray(obj)
 }
 
-function objectToForm(params: any, form: FormData | URLSearchParams, childNode = '', isArrayNode = false) {
+function objectToForm<T = FormData | URLSearchParams>(params: any, form: T, childNode = '', isArrayNode = false): T {
   Object.entries(params).forEach(([key, value]) => {
     const node = isArrayNode ? `[${key}]` : key
     if (isObject(value)) objectToForm(params[key], form, `${childNode}${node}.`) // search Object (Recursive call)
@@ -26,7 +26,7 @@ function objectToForm(params: any, form: FormData | URLSearchParams, childNode =
  * @param params FormDataに変換したいオブジェクト
  * @returns FormDataインスタンス (multipart/form-data)
  */
-export function objectToFormData(params: Record<string, any>) {
+export function objectToFormData(params: Record<string, any>): FormData {
   return objectToForm(params, new FormData())
 }
 
@@ -35,6 +35,6 @@ export function objectToFormData(params: Record<string, any>) {
  * @param params FormDataに変換したいオブジェクト
  * @returns URLSearchParamsインスタンス (application/x-www-form-urlencoded)
  */
-export function objectToURLSearchParams(params: Record<string, any>) {
+export function objectToURLSearchParams(params: Record<string, any>) : URLSearchParams {
   return objectToForm(params, new URLSearchParams())
 }
