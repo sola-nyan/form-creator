@@ -1,10 +1,15 @@
-# form-creator
+# Description
 
 A micro library for TypeScript, converts object to FormData or URLSearchParams.
 
 # How to use
 
-Converts object to FormData
+1. install
+```
+npm install @solanyan/form-creator
+```
+
+2. Converts object to FormData
 ```
   import {objectToFormData} from '@solanyan/form-creator'
    
