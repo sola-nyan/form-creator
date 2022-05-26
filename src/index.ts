@@ -26,7 +26,7 @@ function objectToForm(params: any, form: FormData | URLSearchParams, childNode =
  * @param params FormDataに変換したいオブジェクト
  * @returns FormDataインスタンス (multipart/form-data)
  */
-function objectToFormData(params: Record<string, object>) {
+export function objectToFormData(params: Record<string, any>) {
   return objectToForm(params, new FormData())
 }
 
@@ -35,11 +35,6 @@ function objectToFormData(params: Record<string, object>) {
  * @param params FormDataに変換したいオブジェクト
  * @returns URLSearchParamsインスタンス (application/x-www-form-urlencoded)
  */
-function objectToURLSearchParams(params: Record<string, object>) {
+export function objectToURLSearchParams(params: Record<string, any>) {
   return objectToForm(params, new URLSearchParams())
-}
-
-export default {
-  objectToFormData,
-  objectToURLSearchParams
 }
